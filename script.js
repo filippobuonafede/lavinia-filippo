@@ -1,17 +1,21 @@
-// ---------- Mobile nav ----------
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
+// ---------- Fullscreen menu ----------
+const menuToggle = document.getElementById('menuToggle');
+const menuClose = document.getElementById('menuClose');
+const menuOverlay = document.getElementById('menuOverlay');
 
-navToggle.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('is-open');
-  navToggle.setAttribute('aria-expanded', isOpen);
-});
+function openMenu(){
+  menuOverlay.classList.add('is-open');
+  menuToggle.setAttribute('aria-expanded', 'true');
+}
+function closeMenu(){
+  menuOverlay.classList.remove('is-open');
+  menuToggle.setAttribute('aria-expanded', 'false');
+}
 
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  });
+menuToggle.addEventListener('click', openMenu);
+menuClose.addEventListener('click', closeMenu);
+menuOverlay.querySelectorAll('.menu-item').forEach(link => {
+  link.addEventListener('click', closeMenu);
 });
 
 // ---------- Countdown ----------
@@ -22,17 +26,17 @@ function updateCountdown(){
   const now = new Date();
   const diffMs = WEDDING_DATE - now;
   if (diffMs <= 0){
-    countdownEl.textContent = 'È il grande giorno! ♡';
+    countdownEl.textContent = 'È il grande giorno.';
     return;
   }
   const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  countdownEl.textContent = `Mancano ${days} giorni al nostro giorno`;
+  countdownEl.textContent = `Mancano ${days} giorni.`;
 }
 updateCountdown();
 setInterval(updateCountdown, 1000 * 60 * 60);
 
 // ---------- Reveal on scroll ----------
-const revealTargets = document.querySelectorAll('.section');
+const revealTargets = document.querySelectorAll('.page');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting){
@@ -40,14 +44,9 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.12 });
 
 revealTargets.forEach(el => observer.observe(el));
-
-// Trigger hero entrance once fonts/page are ready
-window.addEventListener('load', () => {
-  document.body.classList.add('is-loaded');
-});
 
 // ---------- RSVP form (Netlify AJAX submit) ----------
 const rsvpForm = document.getElementById('rsvpForm');
@@ -76,7 +75,6 @@ rsvpForm.addEventListener('submit', (e) => {
       rsvpThanks.hidden = false;
     })
     .catch(() => {
-      // Fallback: let the browser do a normal submit if fetch fails
       rsvpForm.submit();
     });
 });
