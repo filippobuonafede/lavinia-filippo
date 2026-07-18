@@ -7,131 +7,117 @@
 <meta name="description" content="Il matrimonio di Filippo e Lavinia, 10 luglio 2027, Reggio Calabria.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="grain"></div>
-
-<nav id="nav" class="nav">
-  <a href="#top" class="nav__mark">F&nbsp;&amp;&nbsp;L</a>
-  <button class="nav__toggle" id="navToggle" aria-label="Apri il menu" aria-expanded="false">
+<header class="topbar">
+  <a href="#top" class="mark">F&nbsp;+&nbsp;L</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="menuOverlay">
     <span></span><span></span><span></span>
   </button>
-  <ul class="nav__links" id="navLinks">
-    <li><a href="#storia">La storia</a></li>
-    <li><a href="#cerimonia">Cerimonia</a></li>
-    <li><a href="#ricevimento">Ricevimento</a></li>
-    <li><a href="#logistica">Come arrivare</a></li>
-    <li><a href="#rsvp" class="nav__cta">Conferma presenza</a></li>
-  </ul>
-</nav>
-
-<header id="top" class="hero">
-  <div class="hero__coast" aria-hidden="true">
-    <svg viewBox="0 0 1440 200" preserveAspectRatio="none" class="hero__wave">
-      <path d="M0,120 C 240,180 480,60 720,100 C 960,140 1200,40 1440,90 L1440,200 L0,200 Z"></path>
-    </svg>
-  </div>
-  <p class="hero__eyebrow">Ci sposiamo</p>
-  <h1 class="hero__names">Filippo <span class="hero__amp">&amp;</span> Lavinia</h1>
-  <p class="hero__date">10&nbsp;luglio&nbsp;2027 · Reggio&nbsp;Calabria</p>
-  <p class="hero__countdown" id="countdown" aria-live="polite"></p>
-  <a href="#storia" class="hero__scroll" aria-label="Scorri per saperne di più">
-    <span></span>
-  </a>
 </header>
 
-<main>
+<div class="menu-overlay" id="menuOverlay">
+  <button class="menu-close" id="menuClose" aria-label="Chiudi il menu">&times;</button>
+  <nav class="menu-list">
+    <a href="#storia" class="menu-item">La storia</a>
+    <a href="#cerimonia" class="menu-item">La cerimonia</a>
+    <a href="#ricevimento" class="menu-item">Il ricevimento</a>
+    <a href="#logistica" class="menu-item">Da sapere</a>
+    <a href="#rsvp" class="menu-item">RSVP</a>
+  </nav>
+</div>
 
-  <section id="storia" class="section story">
-    <p class="eyebrow">La storia</p>
-    <h2 class="section__title">Due strade, un solo mare</h2>
-    <p class="story__text">
+<main id="top">
+
+  <section class="page page--hero">
+    <div class="page__media page__media--tall placeholder placeholder--sea" aria-hidden="true"></div>
+    <h1 class="page__title page__title--home">Filippo, finalmente<br>con Lavinia</h1>
+    <p class="page__lead">10 luglio 2027 — Reggio Calabria</p>
+    <p class="page__countdown" id="countdown" aria-live="polite"></p>
+    <hr class="rule">
+  </section>
+
+  <section id="storia" class="page">
+    <div class="page__media placeholder placeholder--linen" aria-hidden="true"></div>
+    <h2 class="page__title">La storia</h2>
+    <p class="page__lead">Due strade, un solo mare.</p>
+    <p class="page__body">
       Ci siamo trovati senza cercarci, in mezzo alle cose di tutti i giorni,
-      e da lì non ci siamo più lasciati. Anno dopo anno abbiamo imparato a
-      costruire insieme — con pazienza, ironia e la stessa direzione negli
-      occhi. Il 10 luglio 2027 vogliamo dirlo davanti a chi ci vuole bene:
-      da qui in poi, la strada è una sola.
+      e da lì non ci siamo più lasciati.<br>
+      Anno dopo anno abbiamo imparato a costruire insieme — con pazienza,
+      ironia e la stessa direzione negli occhi.<br>
+      Il 10 luglio 2027 vogliamo dirlo davanti a chi ci vuole bene: da qui
+      in poi, la strada è una sola.
     </p>
-    <p class="story__note">— personalizzate pure questo paragrafo con un ricordo vostro —</p>
+    <p class="page__note">— personalizzate pure questo paragrafo con un ricordo vostro —</p>
+    <hr class="rule">
   </section>
 
-  <section id="cerimonia" class="section split">
-    <div class="split__media" aria-hidden="true">
-      <div class="split__frame frame--church"></div>
-    </div>
-    <div class="split__content">
-      <p class="eyebrow">Ore 11:00</p>
-      <h2 class="section__title">La cerimonia</h2>
-      <p class="split__place">Chiesa di Santa Maria di Porto Salvo</p>
-      <p class="split__address">Reggio Calabria</p>
-      <p class="split__text">
-        Vi aspettiamo per lo scambio delle promesse in una delle chiese più
-        care alla città, a due passi dal lungomare. Vi chiediamo di essere
-        presenti con qualche minuto di anticipo.
+  <section id="cerimonia" class="page">
+    <div class="page__media placeholder placeholder--church" aria-hidden="true"></div>
+    <h2 class="page__title">La cerimonia</h2>
+    <p class="page__lead">Sabato 10 Luglio,<br>ore 11:00</p>
+    <p class="page__place">CHIESA DI SANTA MARIA DI PORTO SALVO</p>
+    <p class="page__address">Reggio Calabria</p>
+    <p class="page__body">
+      Vi aspettiamo per lo scambio delle promesse in una delle chiese più
+      care alla città, a due passi dal lungomare. Vi chiediamo di essere
+      presenti con qualche minuto di anticipo.
+    </p>
+    <a class="link-under" href="https://www.google.com/maps/search/?api=1&query=Chiesa+di+Santa+Maria+di+Porto+Salvo+Reggio+Calabria" target="_blank" rel="noopener">Apri su Google Maps</a>
+    <hr class="rule">
+  </section>
+
+  <section id="ricevimento" class="page">
+    <div class="page__media placeholder placeholder--sea" aria-hidden="true"></div>
+    <h2 class="page__title">Il ricevimento</h2>
+    <p class="page__lead">A seguire</p>
+    <p class="page__place">KALURA</p>
+    <p class="page__address">Reggio Calabria</p>
+    <p class="page__body">
+      Festeggeremo affacciati sullo Stretto, tra tavolate lunghe, buon
+      cibo calabrese e musica fino a tardi. Non serve altro che venire
+      con fame e voglia di ballare.
+    </p>
+    <a class="link-under" href="https://www.google.com/maps/search/?api=1&query=Kalura+Reggio+Calabria" target="_blank" rel="noopener">Apri su Google Maps</a>
+
+    <div class="attire">
+      <p class="attire__label">ABBIGLIAMENTO</p>
+      <p class="page__body">
+        Elegante estivo. La cerimonia è in chiesa, il ricevimento è
+        all'aperto — un abito comodo per ballare è un'ottima idea.
       </p>
-      <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&query=Chiesa+di+Santa+Maria+di+Porto+Salvo+Reggio+Calabria" target="_blank" rel="noopener">
-        Apri su Google Maps →
-      </a>
     </div>
+    <hr class="rule">
   </section>
 
-  <section id="ricevimento" class="section split split--reverse">
-    <div class="split__media" aria-hidden="true">
-      <div class="split__frame frame--sea"></div>
+  <section id="logistica" class="page">
+    <h2 class="page__title">Da sapere</h2>
+    <p class="page__lead">Qualche informazione utile per organizzare il viaggio.</p>
+
+    <div class="info-block">
+      <p class="info-block__label">IN AEREO</p>
+      <p class="page__body">L'aeroporto più comodo è quello di Reggio Calabria (REG); Lamezia Terme (SUF) è un'alternativa a circa 1h30 d'auto.</p>
     </div>
-    <div class="split__content">
-      <p class="eyebrow">A seguire</p>
-      <h2 class="section__title">Il ricevimento</h2>
-      <p class="split__place">Kalura</p>
-      <p class="split__address">Reggio Calabria</p>
-      <p class="split__text">
-        Festeggeremo affacciati sullo Stretto, tra tavolate lunghe, buon
-        cibo calabrese e musica fino a tardi. Non serve altro che venire
-        con fame e voglia di ballare.
-      </p>
-      <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&query=Kalura+Reggio+Calabria" target="_blank" rel="noopener">
-        Apri su Google Maps →
-      </a>
+    <div class="info-block">
+      <p class="info-block__label">IN TRENO</p>
+      <p class="page__body">Reggio Calabria Centrale è collegata con le principali città italiane; da lì la chiesa e il ricevimento sono raggiungibili in pochi minuti.</p>
     </div>
+    <div class="info-block">
+      <p class="info-block__label">DOVE DORMIRE</p>
+      <p class="page__body">Stiamo raccogliendo alcune convenzioni con hotel e B&amp;B in città: aggiorneremo questa sezione con i dettagli e i codici sconto.</p>
+    </div>
+    <hr class="rule">
   </section>
 
-  <section id="logistica" class="section logistics">
-    <p class="eyebrow">Da sapere</p>
-    <h2 class="section__title">Come arrivare &amp; dove dormire</h2>
-    <div class="logistics__grid">
-      <div class="logistics__card">
-        <h3>In aereo</h3>
-        <p>L'aeroporto più comodo è quello di Reggio Calabria (REG); Lamezia
-        Terme (SUF) è un'alternativa a circa 1h30 d'auto.</p>
-      </div>
-      <div class="logistics__card">
-        <h3>In treno</h3>
-        <p>Reggio Calabria Centrale è collegata con le principali città
-        italiane; da lì la chiesa e il ricevimento sono raggiungibili in
-        pochi minuti.</p>
-      </div>
-      <div class="logistics__card">
-        <h3>Dove dormire</h3>
-        <p>Stiamo raccogliendo alcune convenzioni con hotel e B&amp;B in
-        città: aggiorneremo questa sezione con i dettagli e i codici sconto.</p>
-      </div>
-      <div class="logistics__card">
-        <h3>Dress code</h3>
-        <p>Elegante estivo. La cerimonia è in chiesa, il ricevimento è
-        all'aperto — un abito comodo per ballare è un'ottima idea.</p>
-      </div>
-    </div>
-  </section>
+  <section id="rsvp" class="page">
+    <h2 class="page__title">RSVP</h2>
+    <p class="page__lead">Vi chiediamo di rispondere entro il 10 maggio 2027, per aiutarci a organizzare al meglio la giornata.</p>
 
-  <section id="rsvp" class="section rsvp">
-    <p class="eyebrow">Ultimo passo</p>
-    <h2 class="section__title">Conferma la tua presenza</h2>
-    <p class="rsvp__intro">Vi chiediamo di rispondere entro il 10 maggio 2027, per aiutarci a organizzare al meglio la giornata.</p>
-
-    <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="rsvp__form" id="rsvpForm">
+    <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="rsvp-form" id="rsvpForm">
       <input type="hidden" name="form-name" value="rsvp">
       <p class="hidden-field"><label>Non compilare questo campo: <input name="bot-field"></label></p>
 
@@ -169,14 +155,14 @@
       </div>
 
       <button type="submit" class="btn">Invia la conferma</button>
-      <p class="rsvp__thanks" id="rsvpThanks" hidden>Grazie! Abbiamo ricevuto la tua conferma. ♡</p>
+      <p class="rsvp__thanks" id="rsvpThanks" hidden>Grazie! Abbiamo ricevuto la tua conferma.</p>
     </form>
   </section>
 
 </main>
 
 <footer class="footer">
-  <p class="footer__mark">F &amp; L</p>
+  <p class="mark">F + L</p>
   <p class="footer__text">10 luglio 2027 — Reggio Calabria</p>
 </footer>
 
