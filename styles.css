@@ -2,17 +2,17 @@
    Filippo & Lavinia — editorial monochrome style
    ispirato a caprifinalmente.it: bianco/nero, foto a
    piena larghezza, testo allineato a sinistra, menu a
-   hamburger, coppia di serif (display + corpo).
+   hamburger, serif sottile (Cormorant) + sans light (Jost).
 --------------------------------------------------- */
 
 :root{
-  --paper: #FFFFFF;
-  --ink:   #1C1C1A;
-  --grey:  #6B6B65;
-  --line:  #DAD8D2;
+  --paper: #FDFDFC;
+  --ink:   #141412;
+  --grey:  #6E6E68;
+  --line:  #E2E0D8;
 
-  --display: "Playfair Display", serif;
-  --body:    "Fraunces", serif;
+  --display: "Cormorant Garamond", serif;
+  --body:    "Jost", sans-serif;
 
   --max: 640px;
   --pad: 1.5rem;
@@ -26,9 +26,9 @@ body{
   background:var(--paper);
   color:var(--ink);
   font-family:var(--body);
-  font-weight:400;
+  font-weight:300;
   font-size:1.05rem;
-  line-height:1.65;
+  line-height:1.7;
   -webkit-font-smoothing:antialiased;
 }
 
@@ -48,11 +48,12 @@ a{ color:inherit; }
 }
 .mark{
   font-family:var(--display);
-  font-weight:700;
-  font-size:1.5rem;
+  font-weight:500;
+  font-style:italic;
+  font-size:1.6rem;
   text-decoration:none;
   color:var(--ink);
-  letter-spacing:0.01em;
+  letter-spacing:0.02em;
 }
 .menu-toggle{
   display:flex; flex-direction:column; gap:6px;
@@ -85,8 +86,10 @@ a{ color:inherit; }
   padding-top:1rem;
 }
 .menu-item{
-  font-family:var(--display);
-  font-size:1.7rem;
+  font-family:var(--body);
+  font-weight:300;
+  font-size:1.3rem;
+  letter-spacing:0.03em;
   text-decoration:none;
   color:var(--ink);
 }
@@ -100,51 +103,51 @@ a{ color:inherit; }
 .page--hero{ padding-top:0.5rem; }
 
 .page__media{
-  width:100%;
+  width:100vw;
+  position:relative;
+  left:50%;
+  right:50%;
+  margin-left:-50vw;
+  margin-right:-50vw;
   aspect-ratio: 4 / 5;
   margin-bottom:2rem;
+  overflow:hidden;
+  background:var(--line);
 }
 .page__media--tall{ aspect-ratio: 3 / 4; }
 
-.placeholder{ position:relative; overflow:hidden; }
-.placeholder::after{
-  content:"";
-  position:absolute; inset:0;
-  background-image:repeating-linear-gradient(115deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 22px);
-}
-.placeholder--sea{
-  background:linear-gradient(200deg, #4A5F63 0%, #22302E 100%);
-}
-.placeholder--church{
-  background:linear-gradient(200deg, #5C5548 0%, #26221C 100%);
-}
-.placeholder--linen{
-  background:linear-gradient(200deg, #7C8790 0%, #3E4750 100%);
+.page__media img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
 .page__title{
   font-family:var(--display);
-  font-weight:700;
-  font-size:clamp(2rem, 7vw, 2.6rem);
-  line-height:1.15;
+  font-weight:500;
+  font-size:clamp(2.3rem, 8vw, 3.2rem);
+  line-height:1.1;
+  letter-spacing:0.005em;
   margin:0 0 0.6rem;
 }
 .page__title--home{
-  font-size:clamp(2.2rem, 8vw, 3rem);
+  font-size:clamp(2.6rem, 9vw, 3.8rem);
 }
 
 .page__lead{
-  font-family:var(--body);
+  font-family:var(--display);
   font-style:italic;
-  font-size:1.15rem;
+  font-weight:400;
+  font-size:1.3rem;
   color:var(--grey);
   margin:0 0 1.2rem;
 }
 
 .page__countdown{
-  font-family:var(--body);
+  font-family:var(--display);
   font-style:italic;
-  font-size:1rem;
+  font-size:1.1rem;
   color:var(--ink);
   margin:0 0 2rem;
 }
@@ -169,8 +172,9 @@ a{ color:inherit; }
   max-width:34rem;
 }
 .page__note{
+  font-family:var(--display);
   font-style:italic;
-  font-size:0.85rem;
+  font-size:0.95rem;
   color:var(--grey);
   margin:0;
 }
@@ -246,7 +250,7 @@ a{ color:inherit; }
 .btn:focus-visible{ outline:2px solid var(--ink); outline-offset:2px; }
 
 .rsvp__thanks{
-  margin-top:1.2rem; font-style:italic; color:var(--grey);
+  margin-top:1.2rem; font-family:var(--display); font-style:italic; font-size:1.15rem; color:var(--grey);
 }
 
 /* ---------- Footer ---------- */
@@ -262,6 +266,12 @@ a{ color:inherit; }
 @media (min-width: 720px){
   :root{ --pad: 3vw; }
   .page{ max-width:720px; }
+  .page__media{
+    width:100%;
+    position:static;
+    left:auto; right:auto;
+    margin-left:0; margin-right:0;
+  }
 }
 
 /* ---------- Reveal on scroll ---------- */
