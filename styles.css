@@ -49,8 +49,8 @@ a{ color:inherit; }
 }
 .mark{
   font-family:var(--display);
-  font-weight:500;
-  font-style:italic;
+  font-weight:700;
+  font-style:normal;
   font-size:1.6rem;
   text-decoration:none;
   color:var(--ink);
