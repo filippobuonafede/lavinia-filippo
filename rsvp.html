@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSVP — Lavinia &amp; Filippo</title>
+<meta name="description" content="Conferma la tua presenza al matrimonio di Lavinia e Filippo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="mark">L&nbsp;+&nbsp;F</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="menuOverlay">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="menu-overlay" id="menuOverlay">
+  <button class="menu-close" id="menuClose" aria-label="Chiudi il menu">&times;</button>
+  <nav class="menu-list">
+    <a href="storia.html" class="menu-item">La storia</a>
+    <a href="cerimonia.html" class="menu-item">La cerimonia</a>
+    <a href="ricevimento.html" class="menu-item">Il ricevimento</a>
+    <a href="da-sapere.html" class="menu-item">Da sapere</a>
+    <a href="rsvp.html" class="menu-item">RSVP</a>
+  </nav>
+</div>
+
+<main>
+
+  <section class="page">
+    <h2 class="page__title">RSVP</h2>
+    <p class="page__lead">Vi chiediamo di rispondere entro il 10 maggio 2027, per aiutarci a organizzare al meglio la giornata.</p>
+
+    <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="rsvp-form" id="rsvpForm">
+      <input type="hidden" name="form-name" value="rsvp">
+      <p class="hidden-field"><label>Non compilare questo campo: <input name="bot-field"></label></p>
+
+      <div class="field">
+        <label for="nome">Nome e cognome</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="field field--radio">
+        <span class="field__label">Ci sarai?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="presenza" value="Sì" required> Sì, con gioia</label>
+          <label><input type="radio" name="presenza" value="No"> Purtroppo no</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="ospiti">Numero di persone (te incluso/a)</label>
+        <input type="number" id="ospiti" name="ospiti" min="1" max="10" value="1">
+      </div>
+
+      <div class="field">
+        <label for="allergie">Allergie o intolleranze alimentari</label>
+        <textarea id="allergie" name="allergie" rows="2"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="messaggio">Un messaggio per noi (facoltativo)</label>
+        <textarea id="messaggio" name="messaggio" rows="3"></textarea>
+      </div>
+
+      <button type="submit" class="btn">Invia la conferma</button>
+      <p class="rsvp__thanks" id="rsvpThanks" hidden>Grazie! Abbiamo ricevuto la tua conferma.</p>
+    </form>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p class="mark">L + F</p>
+  <p class="footer__text">10 luglio 2027 — Reggio Calabria</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

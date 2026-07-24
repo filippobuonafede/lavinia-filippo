@@ -22,18 +22,20 @@ menuOverlay.querySelectorAll('.menu-item').forEach(link => {
 const WEDDING_DATE = new Date('2027-07-10T11:00:00+02:00');
 const countdownEl = document.getElementById('countdown');
 
-function updateCountdown(){
-  const now = new Date();
-  const diffMs = WEDDING_DATE - now;
-  if (diffMs <= 0){
-    countdownEl.textContent = 'È il grande giorno.';
-    return;
+if (countdownEl){
+  function updateCountdown(){
+    const now = new Date();
+    const diffMs = WEDDING_DATE - now;
+    if (diffMs <= 0){
+      countdownEl.textContent = 'È il grande giorno.';
+      return;
+    }
+    const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    countdownEl.textContent = `Mancano ${days} giorni.`;
   }
-  const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  countdownEl.textContent = `Mancano ${days} giorni.`;
+  updateCountdown();
+  setInterval(updateCountdown, 1000 * 60 * 60);
 }
-updateCountdown();
-setInterval(updateCountdown, 1000 * 60 * 60);
 
 // ---------- Reveal on scroll ----------
 const revealTargets = document.querySelectorAll('.page');
@@ -58,23 +60,25 @@ function encodeForm(data){
     .join('&');
 }
 
-rsvpForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const formData = new FormData(rsvpForm);
-  const payload = {};
-  formData.forEach((value, key) => { payload[key] = value; });
+if (rsvpForm){
+  rsvpForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(rsvpForm);
+    const payload = {};
+    formData.forEach((value, key) => { payload[key] = value; });
 
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: encodeForm(payload)
-  })
-    .then(() => {
-      rsvpForm.reset();
-      rsvpForm.hidden = true;
-      rsvpThanks.hidden = false;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encodeForm(payload)
     })
-    .catch(() => {
-      rsvpForm.submit();
-    });
-});
+      .then(() => {
+        rsvpForm.reset();
+        rsvpForm.hidden = true;
+        rsvpThanks.hidden = false;
+      })
+      .catch(() => {
+        rsvpForm.submit();
+      });
+  });
+}
