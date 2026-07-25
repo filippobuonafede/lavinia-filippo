@@ -76,15 +76,15 @@ a{ color:inherit; }
 .menu-overlay.is-open{ transform:translateX(0); }
 
 .menu-close{
-  align-self:flex-end;
+  position:absolute;
+  top:0.8rem; right:calc(var(--pad) - 0.5rem);
   background:none; border:none; cursor:pointer;
   font-size:2rem; line-height:1; color:var(--ink);
   padding:0.5rem;
-  margin-bottom:2rem;
 }
 .menu-list{
   display:flex; flex-direction:column; gap:2rem;
-  padding-top:1rem;
+  margin-top:3.5rem;
 }
 .menu-item{
   font-family:var(--body);
@@ -213,7 +213,7 @@ a{ color:inherit; }
 .info-block:last-of-type{ margin-bottom:0; }
 
 /* ---------- RSVP form ---------- */
-.rsvp-form{ margin-top:1.5rem; }
+.rsvp-form{ margin-top:1.5rem; max-width:30rem; }
 .hidden-field{ position:absolute; left:-9999px; }
 
 .field{ margin-bottom:1.4rem; display:flex; flex-direction:column; gap:0.4rem; }
@@ -268,7 +268,7 @@ a{ color:inherit; }
 .footer .mark{ display:block; margin-bottom:0.4rem; font-size:1.2rem; }
 .footer__text{ font-size:0.85rem; margin:0; }
 
-/* ---------- Desktop refinements ---------- */
+/* ---------- Tablet refinements ---------- */
 @media (min-width: 720px){
   :root{ --pad: 3vw; }
   .page{ max-width:720px; }
@@ -278,6 +278,24 @@ a{ color:inherit; }
     left:auto; right:auto;
     margin-left:0; margin-right:0;
   }
+}
+
+/* ---------- Desktop refinements ---------- */
+@media (min-width: 1024px){
+  :root{ --pad: 4vw; }
+  .page{ max-width:760px; }
+
+  .menu-overlay{
+    align-items:center;
+    justify-content:center;
+  }
+  .menu-list{
+    margin-top:0;
+    align-items:center;
+    gap:2.4rem;
+  }
+  .menu-item{ font-size:1.7rem; }
+  .menu-close{ top:1.6rem; right:calc(var(--pad) - 0.5rem); }
 }
 
 /* ---------- Reveal on scroll ---------- */
