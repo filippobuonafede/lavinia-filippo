@@ -99,7 +99,7 @@ a{ color:inherit; }
 .page{
   max-width:var(--max);
   margin:0 auto;
-  padding:0 var(--pad) 3.5rem;
+  padding:0 var(--pad) 1.5rem;
 }
 .page--hero{ padding-top:0.5rem; }
 
@@ -112,7 +112,8 @@ a{ color:inherit; }
   margin-right:-50vw;
   aspect-ratio: 4 / 5;
   max-height:82vh;
-  margin-bottom:2rem;
+  margin-top:0.5rem;
+  margin-bottom:0.75rem;
   overflow:hidden;
   background:var(--line);
 }
@@ -184,6 +185,13 @@ a{ color:inherit; }
   color:var(--grey);
   margin:0;
 }
+.page__caption{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:0.95rem;
+  color:var(--grey);
+  margin:0 0 2rem;
+}
 
 .link-under{
   display:inline-block;
@@ -196,7 +204,7 @@ a{ color:inherit; }
 .rule{
   border:none;
   border-top:1px solid var(--line);
-  margin:3rem 0 0;
+  margin:1.75rem 0 0;
 }
 
 /* ---------- Attire / info blocks ---------- */
@@ -262,7 +270,7 @@ a{ color:inherit; }
 /* ---------- Footer ---------- */
 .footer{
   text-align:left;
-  padding:3rem var(--pad) 2.5rem;
+  padding:1.5rem var(--pad) 2rem;
   color:var(--grey);
 }
 .footer .mark{ display:block; margin-bottom:0.4rem; font-size:1.2rem; }
@@ -299,15 +307,17 @@ a{ color:inherit; }
 }
 
 /* ---------- Reveal on scroll ---------- */
-.page__media, .page__title, .page__lead, .page__body{
+.page__media, .page__title, .page__caption, .page__lead, .page__body{
   opacity:0; transform:translateY(14px);
 }
 .page.is-visible .page__media,
 .page.is-visible .page__title,
+.page.is-visible .page__caption,
 .page.is-visible .page__lead,
 .page.is-visible .page__body{
   opacity:1; transform:none;
   transition:opacity 0.6s ease, transform 0.6s ease;
 }
+.page.is-visible .page__caption{ transition-delay:0.05s; }
 .page.is-visible .page__lead{ transition-delay:0.05s; }
 .page.is-visible .page__body{ transition-delay:0.1s; }
