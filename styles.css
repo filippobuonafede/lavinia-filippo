@@ -16,6 +16,7 @@
 
   --max: 640px;
   --pad: 1.5rem;
+  --topbar-h: 4.5rem;
 }
 
 *{ box-sizing:border-box; }
@@ -43,8 +44,9 @@ a{ color:inherit; }
 /* ---------- Top bar ---------- */
 .topbar{
   position:sticky; top:0; z-index:30;
+  height:var(--topbar-h);
   display:flex; align-items:center; justify-content:space-between;
-  padding:1.3rem var(--pad);
+  padding:0 var(--pad);
   background:var(--paper);
 }
 .mark{
@@ -102,6 +104,11 @@ a{ color:inherit; }
   padding:0 var(--pad) 1.5rem;
 }
 .page--hero{ padding-top:0.5rem; }
+
+.page__cover{
+  min-height:calc(100vh - var(--topbar-h));
+  min-height:calc(100dvh - var(--topbar-h));
+}
 
 .page__media{
   width:100vw;
@@ -191,6 +198,16 @@ a{ color:inherit; }
   font-size:0.95rem;
   color:var(--grey);
   margin:0 0 2rem;
+}
+.page__credit{
+  display:block;
+  font-family:var(--body);
+  font-size:0.72rem;
+  font-style:normal;
+  letter-spacing:0.02em;
+  color:var(--grey);
+  opacity:0.8;
+  margin-top:0.2rem;
 }
 
 .link-under{
