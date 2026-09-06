@@ -15,7 +15,8 @@
 <header class="topbar">
   <a href="index.html" class="mark"><img src="images/mark.png" alt="Lavinia &amp; Filippo"></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="menuOverlay">
-    <span></span><span></span><span></span>
+    <span class="menu-toggle__label">Menu</span>
+    <span class="menu-toggle__bars"><span></span><span></span><span></span></span>
   </button>
 </header>
 
@@ -40,14 +41,10 @@
       <input type="hidden" name="form-name" value="rsvp">
       <p class="hidden-field"><label>Non compilare questo campo: <input name="bot-field"></label></p>
 
-      <div class="field">
+      <div class="field field--autocomplete">
         <label for="nome">Nome e cognome</label>
-        <input type="text" id="nome" name="nome" required>
-      </div>
-
-      <div class="field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="text" id="nome" name="nome" autocomplete="off" required>
+        <ul class="autocomplete-list" id="nomeList" hidden></ul>
       </div>
 
       <div class="field field--radio">
@@ -59,8 +56,13 @@
       </div>
 
       <div class="field">
-        <label for="ospiti">Numero di persone (te incluso/a)</label>
-        <input type="number" id="ospiti" name="ospiti" min="1" max="10" value="1">
+        <label for="accompagnatore">Accompagnatore adulto (facoltativo)</label>
+        <input type="text" id="accompagnatore" name="accompagnatore" placeholder="Nome e cognome">
+      </div>
+
+      <div class="field">
+        <label for="bambini">Bambini under 10 anni</label>
+        <input type="number" id="bambini" name="bambini" min="0" max="10" value="0">
       </div>
 
       <div class="field">
