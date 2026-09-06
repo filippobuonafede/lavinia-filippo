@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RSVP — Lavinia &amp; Filippo</title>
-<meta name="description" content="Conferma la tua presenza al matrimonio di Lavinia e Filippo.">
+<title>Il mito e il simbolo — Lavinia &amp; Filippo</title>
+<meta name="description" content="Il mito di fondazione di Reggio Calabria, tra vite e fico, che ha ispirato lo stemma di Lavinia e Filippo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -33,49 +33,41 @@
 <main>
 
   <section class="page">
-    <h2 class="page__title">RSVP</h2>
-    <p class="page__lead">Vi chiediamo di rispondere entro il 10 maggio 2027, per aiutarci a organizzare al meglio la giornata.</p>
-
-    <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="rsvp-form" id="rsvpForm">
-      <input type="hidden" name="form-name" value="rsvp">
-      <p class="hidden-field"><label>Non compilare questo campo: <input name="bot-field"></label></p>
-
-      <div class="field">
-        <label for="nome">Nome e cognome</label>
-        <input type="text" id="nome" name="nome" required>
+    <div class="page__cover">
+      <h2 class="page__title">Il mito e il simbolo</h2>
+      <div class="page__media page__media--crest">
+        <img src="images/10-luglio.jpg" alt="Stemma con le iniziali L e F" loading="eager">
       </div>
+      <div class="scroll-cue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+    </div>
+    <p class="page__lead">La leggenda che ha ispirato il nostro stemma.</p>
 
-      <div class="field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
+    <blockquote class="myth-quote">
+      <p lang="grc">«Ἀψία ᾗ ποταμῶν ἱερώτατος εἰς ἅλα πίπτει, ἔνθ᾽ εἴσω βάλλοντι τὸν ἄρσενα θῆλυς ὀπύει…»</p>
+      <p class="myth-quote__it">«Là dove l'Apsia, il più sacro dei fiumi, incontrava il mare e dove la femmina si univa al maschio.»</p>
+    </blockquote>
 
-      <div class="field field--radio">
-        <span class="field__label">Ci sarai?</span>
-        <div class="radio-group">
-          <label><input type="radio" name="presenza" value="Sì" required> Sì, con gioia</label>
-          <label><input type="radio" name="presenza" value="No"> Purtroppo no</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="ospiti">Numero di persone (te incluso/a)</label>
-        <input type="number" id="ospiti" name="ospiti" min="1" max="10" value="1">
-      </div>
-
-      <div class="field">
-        <label for="allergie">Allergie o intolleranze alimentari</label>
-        <textarea id="allergie" name="allergie" rows="2"></textarea>
-      </div>
-
-      <div class="field">
-        <label for="messaggio">Un messaggio per noi (facoltativo)</label>
-        <textarea id="messaggio" name="messaggio" rows="3"></textarea>
-      </div>
-
-      <button type="submit" class="btn">Invia la conferma</button>
-      <p class="rsvp__thanks" id="rsvpThanks" hidden>Grazie! Abbiamo ricevuto la tua conferma.</p>
-    </form>
+    <p class="page__body">
+      Si racconta che con queste parole l'oracolo di Delfi avesse indicato
+      ai coloni calcidesi il luogo in cui sarebbe sorta Rhegion.
+    </p>
+    <p class="page__body">
+      Giunti alla foce del fiume, i coloni videro una vite avvolgersi
+      intorno a un fico selvatico e riconobbero in quell'intreccio il
+      segno annunciato dall'oracolo: la vite, simbolo femminile, stretta
+      al fico, simbolo maschile.
+    </p>
+    <p class="page__body">
+      Fu in quell'abbraccio, sospeso tra terra e mare, che la leggenda
+      volle riconoscere l'inizio di Reggio.
+    </p>
+    <p class="page__body">
+      Da questa antica leggenda prende forma anche il nostro simbolo: un
+      intreccio che richiama la vite e il fico, scelto per raccontare il
+      legame con la nostra terra e diventare il segno che accompagnerà il
+      nostro matrimonio.
+    </p>
+    <hr class="rule">
   </section>
 
 </main>
