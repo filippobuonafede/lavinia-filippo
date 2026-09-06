@@ -154,6 +154,11 @@ if (rsvpForm){
     const payload = {};
     formData.forEach((value, key) => { payload[key] = value; });
 
+    const guestName = (payload.nome || '').trim().split(' ')[0];
+    rsvpThanks.textContent = payload.presenza === 'No'
+      ? `Grazie${guestName ? ', ' + guestName : ''} per averci avvisato: ci mancherai, ma sarai con noi col pensiero.`
+      : `Grazie${guestName ? ', ' + guestName : ''}! Abbiamo ricevuto la tua conferma — non vediamo l'ora di festeggiare con te.`;
+
     if (GOOGLE_SHEETS_URL){
       fetch(GOOGLE_SHEETS_URL, {
         method: 'POST',
