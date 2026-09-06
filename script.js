@@ -70,8 +70,27 @@ if (nomeInput && nomeList){
   if (GOOGLE_SHEETS_URL){
     fetch(GOOGLE_SHEETS_URL)
       .then(res => res.json())
-      .then(names => { guestList = Array.isArray(names) ? names : []; })
+      .then(names => {
+        guestList = Array.isArray(names) ? names : [];
+        // Se l'utente ha già iniziato a scrivere prima che l'elenco arrivasse
+        // (lo script di Google può metterci qualche secondo), filtra subito.
+        if (document.activeElement === nomeInput && nomeInput.value.trim().length > 0){
+          filterAndRender();
+        }
+      })
       .catch(() => { guestList = []; });
+  }
+
+  function filterAndRender(){
+    const query = normalizeText(nomeInput.value);
+    if (query.length === 0 || guestList.length === 0){
+      nomeList.hidden = true;
+      return;
+    }
+    const matches = guestList
+      .filter(name => normalizeText(name).includes(query))
+      .slice(0, 6);
+    renderMatches(matches);
   }
 
   function renderMatches(matches){
@@ -84,27 +103,19 @@ if (nomeInput && nomeList){
     matches.forEach(name => {
       const li = document.createElement('li');
       li.textContent = name;
-      li.addEventListener('mousedown', (e) => {
+      const selectName = (e) => {
         e.preventDefault();
         nomeInput.value = name;
         nomeList.hidden = true;
-      });
+      };
+      li.addEventListener('pointerdown', selectName);
+      li.addEventListener('mousedown', selectName);
       nomeList.appendChild(li);
     });
     nomeList.hidden = false;
   }
 
-  nomeInput.addEventListener('input', () => {
-    const query = normalizeText(nomeInput.value);
-    if (query.length === 0 || guestList.length === 0){
-      nomeList.hidden = true;
-      return;
-    }
-    const matches = guestList
-      .filter(name => normalizeText(name).includes(query))
-      .slice(0, 6);
-    renderMatches(matches);
-  });
+  nomeInput.addEventListener('input', filterAndRender);
 
   nomeInput.addEventListener('keydown', (e) => {
     const items = Array.from(nomeList.querySelectorAll('li'));
