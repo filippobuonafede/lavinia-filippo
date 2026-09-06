@@ -125,6 +125,7 @@ a{ color:inherit; }
   background:var(--line);
 }
 .page__media--tall{ aspect-ratio: 4 / 5; }
+.page__media--crest{ background:#F4F3EF; }
 
 .page__media img{
   display:block;
@@ -135,6 +136,10 @@ a{ color:inherit; }
 }
 .page--hero .page__media img{
   object-position:25% 32%;
+}
+.page__media--crest img{
+  object-fit:contain;
+  object-position:center;
 }
 
 .page__title{
@@ -148,6 +153,16 @@ a{ color:inherit; }
 .page__title--home{
   font-size:clamp(2.6rem, 9vw, 3.8rem);
 }
+
+.page__subtitle{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(1.6rem, 5vw, 2.1rem);
+  line-height:1.15;
+  margin:0 0 0.6rem;
+  padding-top:2.5rem;
+}
+.page__subtitle:first-of-type{ padding-top:0; }
 
 .page__lead{
   font-family:var(--display);
@@ -228,12 +243,15 @@ a{ color:inherit; }
 .attire{ margin-top:1.8rem; }
 .attire__label,
 .info-block__label{
+  display:block;
   font-family:var(--body);
   font-size:0.78rem;
   letter-spacing:0.1em;
   color:var(--grey);
   margin:0 0 0.5rem;
+  text-decoration:none;
 }
+a.info-block__label:hover{ text-decoration:underline; }
 .info-block{ margin-bottom:1.8rem; }
 .info-block:last-of-type{ margin-bottom:0; }
 
